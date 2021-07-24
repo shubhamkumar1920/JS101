@@ -1,0 +1,54 @@
+<html>
+    <style>
+        #container {
+            height: 400px;
+            width: 400px;
+            border: 2px solid black;
+            background-color: yellow;
+            position: relative;
+        }
+
+        #square {
+            height: 50px;
+            width: 50px;
+            background-color: #34eb43;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        #button {
+            background-color: #ff5e00;
+            font-size: 20px;
+        }
+
+    </style>
+
+    <body>
+        <div id="container">
+            <div id="square"></div>
+        </div>
+
+        <button id="button" onclick="animateButton()">Animate</button>
+
+        <script>
+            function animateButton() {
+                let element = document.getElementById("square");
+                let pos = 0;
+                let animation = setInterval(adjustPosition, 10);
+                // will call adjustPosition for every 10 milli seconds
+        
+                function adjustPosition() {
+                    if (pos == 350) {
+                        clearInterval(animation); // stop animation
+                    }
+                    pos++; // increase the position by 1px for every 10 milli seconds
+                    element.style.left = pos + "px";
+                    element.style.top = pos + "px";
+                }
+            }
+        </script>
+    </body>
+
+    
+</html>

@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <style>
+      div {
+        min-width: 100px;
+        min-height: 100px;
+        padding: 50px;
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <div id='grand-parent'>
+        <div id='parent'>
+            <div id='child'></div>
+        </div>
+    </div>
+    <script>
+      // if third paramater is false events will events bubble up
+      // if third parameter is true events will events capture down
+
+    // The default value is false, which will use the bubbling propagation, 
+    // when the value is set to true, the event uses the capturing propagation.
+
+    // Event capturing will have a higher preference
+    // over event bubbling
+
+    // So evenif we click the child, event propagation
+    // starts from parent
+    
+      document.querySelector('#grand-parent')
+      .addEventListener('click', () => {
+        alert('grand-parent is clicked')
+      })
+      document.querySelector('#parent')
+      .addEventListener('click', () => {
+    //    e.stopPropagation()
+        alert('parent is clicked')
+      })
+      document.querySelector('#child')
+      .addEventListener('click', () => {
+        alert('child is clicked')
+      })
+    </script>
+  </body>
+</html>

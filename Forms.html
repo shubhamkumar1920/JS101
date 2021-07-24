@@ -1,0 +1,32 @@
+<html>
+    <body>
+        <h1>Finding HTML Elements by HTML Object Collections</h1>
+        <form id="form-1">
+            Email:<input type="email" name="email" value="newtonschool@gmail.com">
+            Password : <input type="password" name="password" value="qwerty">
+        </form>
+
+        <form id="form-2">
+            First_Name : <input type="text" name="firstname" value="Suraj">
+            Last_Name : <input type="text" name="lastname" value="Rajmane">
+        </form>
+
+        <button onclick="getData()">Login</button>
+
+        <script>
+            function getData() {
+                console.log(document.forms);
+                console.log(document.forms["form-2"]);
+
+                let data = document.forms["form-1"];
+
+                for(var i = 0; i < data.length; i++) {
+            //    console.log(data[i]) // Both ways are correct
+            //    console.log(data.elements[i]) // Both ways are correct
+
+                    console.log(data.elements[i].name, data.elements[i].value);
+                }
+            }
+        </script>
+    </body>
+</html>

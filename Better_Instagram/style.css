@@ -1,0 +1,31 @@
+img {
+    height: 100px;
+    width: 100px;
+    position: relative;
+    top: 5px;
+    left: 5px;
+    cursor: move;
+    
+}
+
+.container {
+    margin: 50px auto;
+    display: grid;
+    grid-template-columns: repeat(6, auto);
+    width: 800px;
+    height: 150px;
+    grid-gap: 5px;
+    justify-content: center;
+    align-content: center;
+    border: 3px solid coral;
+}
+
+.grid-item {
+    height: 110px;
+    width: 110px;;
+    border: 2px solid #240f02;
+}
+
+img.dragging {
+    opacity: 0.5;
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <h1>Finding HTML Elements by id, tag name, class name, CSS selectors</h1>
+    <a id="link1" href="google.com">GOOGLE</a>
+    <p>This is a paragraph</p>
+    <div class="first-class">Class value 1</div>
+    <div class="first-class">Class value 2</div>
+    <p id="demo">one</p>
+    <p class='one'>two</p>
+    <p class='one'>three</p>
+
+    <script>
+        document.write("Write into the HTML output stream");
+        console.log(document.getElementById('link1').attributes);
+        // If the element is not found, it will return null
+
+        var element = document.getElementsByTagName('p');
+        console.log(element); // return all elements with <p> tag
+        
+        // Accessing all the elemets having class 'first-class' 
+        // and changing text inside 2nd element
+        var x = document.getElementsByClassName('first-class');
+        x[1].innerHTML = "I have been changed";
+
+        document.getElementById('demo').innerHTML = 'Inserting all text of x[1] =>'+ x[1].innerHTML;
+
+        // If you want to find all HTML elements that match a specified CSS selector (id, class names, types, attributes, values of attributes, etc),
+        // use the querySelectorAll() method
+
+        // returns a list of all <p> elements with class="one"
+        console.log(document.querySelectorAll("p.one"));
+
+    </script>
+</body>
+
+</html>

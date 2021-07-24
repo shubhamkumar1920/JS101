@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //Default binding
+        // call site will decide what is the value of this and this will refer to call site object
+
+        function foo() {
+            console.log("This is ", this.a); //console.log(window.a)
+        }
+        var a = "Hello";
+        foo();
+
+        //implicit Binding
+        const b = {
+            caller: "Some Person",
+            foo: function () {
+                console.log(this.caller);
+            },
+        };
+        var caller = "Some Other Person";
+        b.foo(); // o/p => Some Person
+        let storedFunction = b.foo;
+        storedFunction(); // o/p => Some Other Person
+
+        // Exception : Arrow Functions
+
+        const call = {
+            caller: "mom",
+            says: () => {
+                console.log(this.caller); 
+            }
+        };
+
+        call.says(); // o/p => undefined (beacuse this => window)
+
+        //Explicit Binding
+        //bind, call, apply
+
+        // bind
+        var pokemon = {
+            firstname: "Pika",
+            lastname: "Chu",
+            getPokeName: function () {
+                var fullname = this.firstname + this.lastname;
+                return fullname;
+            },
+        };
+        var pokemonName = function () {
+            console.log(this.getPokeName() + " I chose you");
+        };
+
+        pokemonName(); // typeError(this.getPokeName is not a function)
+
+        var logPokemon = pokemonName.bind(pokemon);
+        logPokemon();
+
+        //call
+        var pokemon = {
+            firstname: "Pika",
+            lastname: "Chu",
+            getPokeName: function () {
+                var fullname = this.firstname + this.lastname;
+                return fullname;
+            },
+        };
+        var pokemonName = function (snack, hobby) {
+            console.log(
+                this.getPokeName() +
+                " I chose you and my favourite snack is " +
+                snack +
+                " And Hobby is " +
+                hobby
+            );
+        };
+        pokemonName.call(pokemon, "pizza", "reading");
+
+        //apply
+        var pokemon = {
+            firstname: "Pika",
+            lastname: "Chu",
+            getPokeName: function () {
+                var fullname = this.firstname + this.lastname;
+                return fullname;
+            },
+        };
+        var pokemonName = function (snack, hobby) {
+            console.log(
+                this.getPokeName() +
+                " I chose you and my favourite snack is " +
+                snack +
+                " And Hobby is " +
+                hobby
+            );
+        };
+
+        pokemonName.apply(pokemon, ["pizza", "reading", "Extra Param"]);
+
+        //Exception=> Arrow Functions
+        function foo() {
+            return "Hello";
+        }
+        const fun = () => "Hello";
+        // Arrow Functions adopt this binding of enclosing scope
+        // Lexical Binding of arrow functions cannot be ovverriden (even explicitly)
+        function func() {
+            return (a) => {
+                console.log(this.a);
+            };
+        }
+        var obj1 = { a: 2 };
+        var obj2 = { a: 3 };
+        var bar = func.call(obj1);
+        bar.call(obj2);
+
+        function time() {
+            setTimeout(()=>{
+                console.log(this.a)
+            }, 3000);
+        }
+        var obj = { a: 2 };
+        time.call(obj);
+
+    </script>
+</body>
+
+</html>

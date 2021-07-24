@@ -1,0 +1,39 @@
+<html>
+    <body>
+        <p id="message"></p>
+        <p id="demo"></p>
+        <button id="alert-button">Click Me</button>
+        <script>
+            let element = document.getElementById("alert-button");
+            element.addEventListener("click", alertUser);
+            element.addEventListener("click", consoleUser);
+            element.addEventListener("click", display);
+        //    element.removeEventListener("click",display);
+            
+    // e.target — is the button itself
+    // The target property of the event object is always a reference
+    // to the element the event occurred upon.
+
+            function alertUser(e) {
+                alert("Hello, Suraj");
+                e.target.style.backgroundColor = "rgb(143, 235, 52)";
+            }
+
+            function consoleUser() {
+                console.log("Hello World!");
+            }
+
+            function display() {
+                let elem = document.getElementById("message");
+                elem.innerHTML = "You can add many event handlers to one element";
+            }
+
+            // Add an Event Handler to the window Object
+
+            window.addEventListener("resize", function(){
+                document.getElementById("demo").innerHTML = Math.random();
+            });
+
+        </script>
+    </body>
+</html>

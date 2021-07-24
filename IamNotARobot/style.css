@@ -1,0 +1,48 @@
+h3 {
+    text-align: center;
+}
+
+#container {
+    margin: 50px auto;
+    display: grid;
+    grid-template-columns: repeat(6, auto);
+    width: 800px;
+    height: 150px;
+    grid-gap: 5px;
+    justify-content: center;
+    align-content: center;
+    border: 3px solid coral;
+}
+
+.grid-item {
+    height: 110px;
+    width: 110px;;
+    border: 2px solid #240f02;
+}
+
+.imageList {
+    height: 100px;
+    width: 100px;
+    position: relative;
+    top: 5px;
+    left: 5px;
+    cursor: pointer;
+}
+
+#btn-container {
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    height: 80px;
+    width: 300px;
+    border: 2px solid blue;
+    grid-gap: 50px;
+    justify-content: center;
+    align-content: center;
+
+}
+
+#para {
+    text-align: center;
+    font-size: 20px;
+}

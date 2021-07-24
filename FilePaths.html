@@ -1,0 +1,16 @@
+<html>
+    <body>
+        <!-- Relative path -->
+        <img id="1"  src="../../../HappyNewYear.png" height="400" width="400" alt="No image">
+        <!-- Absolute path -->
+        <img id="2" src="D:/Full_Stack_Developer_Course/Happy-New-Year-2021.jpg" height="400" width="400" alt="No image">
+
+        <button onclick="changeImage()">Change Image</button>
+        <script>
+            function changeImage() {
+                var element = document.getElementById("1");
+                element.src = "https://images-na.ssl-images-amazon.com/images/I/41CpXSBDH5L._AC_.jpg";
+            }
+        </script>
+    </body>
+</html>
